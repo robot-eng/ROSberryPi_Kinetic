@@ -80,3 +80,29 @@ const char* str = PyString_AsString(obj);
   File "/opt/ros/kinetic/share/python_qt_binding/cmake/sip_configure.py", line 65, in get_sip_dir_flags
     raise FileNotFoundError('The sip directory for PyQt5 could not be located. Please ensure' +
 NameError: global name 'FileNotFoundError' is not defined
+```
+sudo apt-get install pyqt5-dev
+```
+3. /home/pi/ros_catkin_ws/src/geometry2/tf2/src/buffer_core.cpp:126:34: error: ‘logWarn’ was not declared in this scope
+     logWarn("%s",ss.str().c_str()); ‘logWarn’,‘logError’
+```
+sudo nano /usr/include/console_bridge/console.h
+```
+add :
+```
+#define logWarn CONSOLE_BRIDGE_logWarn
+#define logError CONSOLE_BRIDGE_logError
+#define logDebug CONSOLE_BRIDGE_logDebug
+#define logInform CONSOLE_BRIDGE_logInform
+```
+4. error: ‘condition_variable_monotonic’ in namespace ‘ros::internal’ does not name a type
+```
+sudo nano /opt/ros/kinetic/include/ros/internal/condition_variable.h
+```
+```    
+using condition_variable_monotonic = boost::condition_variable;
+```
+to
+```
+typedef boost::condition_variable condition_variable_monotonic;
+```
