@@ -41,7 +41,6 @@ $ sudo apt install -y python-rosdep python-rosinstall-generator python-wstool py
 $ mkdir -p ~/ros_catkin_ws
 $ cd ~/ros_catkin_ws
 ```
-
 7. ROS-Comm: (recommended) ROS package, build, and communication libraries. No GUI tools.
 ```
 $ rosinstall_generator ros_comm --rosdistro kinetic --deps --wet-only --tar > kinetic-ros_comm-wet.rosinstall
