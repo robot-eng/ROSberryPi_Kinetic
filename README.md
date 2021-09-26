@@ -41,10 +41,16 @@ $ sudo apt install -y python-rosdep python-rosinstall-generator python-wstool py
 $ mkdir -p ~/ros_catkin_ws
 $ cd ~/ros_catkin_ws
 ```
-6.ROS-Comm: (recommended) ROS package, build, and communication libraries. No GUI tools.
+6.
+ROS-Comm: (recommended) ROS package, build, and communication libraries. No GUI tools.
 ```
 $ rosinstall_generator ros_comm --rosdistro kinetic --deps --wet-only --tar > kinetic-ros_comm-wet.rosinstall
 $ wstool init src kinetic-ros_comm-wet.rosinstall
+```
+or Desktop: ROS, rqt, rviz, and robot-generic libraries
+```
+$ rosinstall_generator desktop --rosdistro kinetic --deps --wet-only --tar > kinetic-desktop-wet.rosinstall
+$ wstool init src kinetic-desktop-wet.rosinstall
 ```
 7.Raspbian Buster:
 ```
@@ -62,19 +68,20 @@ $ . ~/.bashrc
 ```
 10. Updating the Workspace : Desktop: ROS, rqt, rviz, and robot-generic libraries
 ```
-$ rosinstall_generator desktop --rosdistro kinetic --deps --wet-only --tar > kinetic-desktop-wet.rosinstall
-$ wstool merge -t src kinetic-desktop-wet.rosinstall
+$ cd ~/ros_catkin_ws
+$ rosinstall_generator ros_comm ros_control joystick_drivers --rosdistro kinetic --deps --wet-only --tar > kinetic-custom_ros.rosinstall
+$ wstool merge -t src kinetic-custom_ros.rosinstall
 $ wstool update -t src
 $ rosdep install -y --from-paths src --ignore-src --rosdistro kinetic -r --os=debian:buster
 $ sudo ./src/catkin/bin/catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release --install-space /opt/ros/kinetic
 ```
-10.1 error install ros desktop
-1. /home/pi/ros_catkin_ws/src/opencv3/modules/python/src2/cv2.cpp:885:34: error: invalid conversion from ‘const char*’ to ‘char*’ [-fpermissive]
+11 error install 
+11.1 /home/pi/ros_catkin_ws/src/opencv3/modules/python/src2/cv2.cpp:885:34: error: invalid conversion from ‘const char*’ to ‘char*’ [-fpermissive]
      char* str = PyString_AsString(obj);
 ```
 const char* str = PyString_AsString(obj);
 ```
-2. Traceback (most recent call last):
+11.2. Traceback (most recent call last):
   File "/opt/ros/kinetic/share/python_qt_binding/cmake/sip_configure.py", line 85, in <module>
     sip_dir, sip_flags = get_sip_dir_flags(config)
   File "/opt/ros/kinetic/share/python_qt_binding/cmake/sip_configure.py", line 65, in get_sip_dir_flags
@@ -83,7 +90,7 @@ NameError: global name 'FileNotFoundError' is not defined
 ```
 sudo apt-get install pyqt5-dev
 ```
-3. /home/pi/ros_catkin_ws/src/geometry2/tf2/src/buffer_core.cpp:126:34: error: ‘logWarn’ was not declared in this scope
+11.3. /home/pi/ros_catkin_ws/src/geometry2/tf2/src/buffer_core.cpp:126:34: error: ‘logWarn’ was not declared in this scope
      logWarn("%s",ss.str().c_str()); ‘logWarn’,‘logError’
 ```
 sudo nano /usr/include/console_bridge/console.h
@@ -95,7 +102,7 @@ add :
 #define logDebug CONSOLE_BRIDGE_logDebug
 #define logInform CONSOLE_BRIDGE_logInform
 ```
-4. error: ‘condition_variable_monotonic’ in namespace ‘ros::internal’ does not name a type
+11.4. error: ‘condition_variable_monotonic’ in namespace ‘ros::internal’ does not name a type
 ```
 sudo nano /opt/ros/kinetic/include/ros/internal/condition_variable.h
 ```
