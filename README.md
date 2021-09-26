@@ -65,7 +65,7 @@ sudo ./src/catkin/bin/catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release 
 $ echo "source /opt/ros/kinetic/setup.bash" >> ~/.bashrc
 $ . ~/.bashrc
 ```
-### 11. Updating the Workspace : Desktop: ROS, rqt, rviz, and robot-generic libraries
+### 11. Updating the Workspace 
 ```
 $ cd ~/ros_catkin_ws
 $ rosinstall_generator ros_comm ros_control joystick_drivers --rosdistro kinetic --deps --wet-only --tar > kinetic-custom_ros.rosinstall
