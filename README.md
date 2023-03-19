@@ -1,18 +1,18 @@
 # ROSberryPi_Kinetic Raspberry Pi OS (Buster!)
 
-## **VIDEO :**
+**VIDEO :**
 
 [![IMAGE ALT TEXT](https://i9.ytimg.com/vi_webp/vEi3pXprwQU/mqdefault.webp?v=6336f07d&sqp=CNiy3aAG&rs=AOn4CLDVWyQGWSXro0q6dpzgg1Gwo0xU1w)](https://youtu.be/vEi3pXprwQU "Video Title")
 
-### 1.
+### 1. Install dirmngr
 ```
 sudo apt-get install dirmngr
 ```
-### 2.
+### 2. Sources packages ubuntu
 ```
 sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
 ```
-### 3.
+### 3. keyservers
 ```
 sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
 ```
@@ -20,12 +20,12 @@ or
 ```
 wget http://packages.ros.org/ros.key -O - | sudo apt-key add -
 ```
-### 4.
+### 4. update and upgrade
 ```
 $ sudo apt-get update
 $ sudo apt-get upgrade
 ```
-### 5.
+### 5. Install more
 ```
 $ sudo apt remove libboost1.67-dev
 $ sudo apt autoremove
@@ -61,11 +61,11 @@ $ wstool init src kinetic-desktop-wet.rosinstall
 $ cd ~/ros_catkin_ws
 $ rosdep install -y --from-paths src --ignore-src --rosdistro kinetic -r --os=debian:buster
 ```
-### 9.
+### 9. install-space /opt/ros/kinetic
 ```
 sudo ./src/catkin/bin/catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release --install-space /opt/ros/kinetic
 ```
-### 10.
+### 10. source ros kinetic
 ```
 $ echo "source /opt/ros/kinetic/setup.bash" >> ~/.bashrc
 $ . ~/.bashrc
@@ -79,6 +79,9 @@ $ wstool update -t src
 $ rosdep install -y --from-paths src --ignore-src --rosdistro kinetic -r --os=debian:buster
 $ sudo ./src/catkin/bin/catkin_make_isolated --install -DCMAKE_BUILD_TYPE=Release --install-space /opt/ros/kinetic
 ```
+
+## Case Error
+
 ### 12 error install 
 12.1 /home/pi/ros_catkin_ws/src/opencv3/modules/python/src2/cv2.cpp:885:34: error: invalid conversion from ‘const char*’ to ‘char*’ [-fpermissive]
      char* str = PyString_AsString(obj);
