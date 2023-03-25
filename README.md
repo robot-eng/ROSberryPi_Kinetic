@@ -2,7 +2,7 @@
 
 **VIDEO :**
 
-[![IMAGE ALT TEXT](https://i9.ytimg.com/vi_webp/vEi3pXprwQU/mqdefault.webp?v=6336f07d&sqp=CNiy3aAG&rs=AOn4CLDVWyQGWSXro0q6dpzgg1Gwo0xU1w)](https://youtu.be/vEi3pXprwQU "Video Title")
+[![IMAGE ALT TEXT](https://i9.ytimg.com/vi_webp/vEi3pXprwQU/mqdefault.webp?v=6336f07d&sqp=CJyF-6AG&rs=AOn4CLCm3jigsYA3gR86U32tZoOW1Uz8QQ)](https://youtu.be/vEi3pXprwQU "Video Title")
 
 ### 1. Install dirmngr
 ```
