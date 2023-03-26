@@ -1,8 +1,6 @@
 # ROSberryPi_Kinetic Raspberry Pi OS (Buster!)
 
-**VIDEO :**
-
-[![IMAGE ALT TEXT](https://i9.ytimg.com/vi_webp/vEi3pXprwQU/mqdefault.webp?v=6336f07d&sqp=CJyF-6AG&rs=AOn4CLCm3jigsYA3gR86U32tZoOW1Uz8QQ)](https://youtu.be/vEi3pXprwQU "Video Title")
+**VIDEO :** <a href="https://youtu.be/vEi3pXprwQU">link</a>
 
 ### 1. Install dirmngr
 ```
